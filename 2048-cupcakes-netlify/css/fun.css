@@ -1,0 +1,296 @@
+/* ═══ Fun Layer — missions, blitz, d-pad, danger, victory ═══ */
+
+.fun-hud {
+  width: 100%;
+  max-width: 520px;
+  margin: 4px auto 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fun-hud__streak {
+  text-align: center;
+  font-weight: 600;
+  font-size: 13px;
+  color: #b0104a;
+  background: rgba(176, 16, 74, 0.1);
+  border: 1px solid rgba(176, 16, 74, 0.22);
+  border-radius: 999px;
+  padding: 6px 12px;
+}
+
+.fun-hud__missions {
+  display: grid;
+  gap: 6px;
+}
+
+.fun-mission {
+  background: #fff;
+  border: 1px solid rgba(255, 107, 149, 0.25);
+  border-radius: 12px;
+  padding: 8px 10px;
+  font-size: 12px;
+  color: #4A3728;
+}
+
+.fun-mission--done {
+  border-color: #4caf50;
+  background: rgba(76, 175, 80, 0.08);
+}
+
+.fun-mission__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.fun-mission__bar {
+  height: 6px;
+  background: rgba(88, 46, 116, 0.12);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.fun-mission__bar i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #FF6B95, #FF8FA8);
+  border-radius: 4px;
+  transition: width 0.35s ease;
+}
+
+.fun-hud__blitz {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(135deg, #582e74, #f67098);
+  border-radius: 12px;
+  padding: 10px 14px;
+  animation: fun-blitz-pulse 1s ease infinite;
+}
+
+.fun-hud__blitz--low,
+.fun-hud__blitz.fun-hud__blitz--low {
+  animation: fun-blitz-urgent 0.45s ease infinite;
+  background: linear-gradient(135deg, #c62828, #f67098);
+}
+
+@keyframes fun-blitz-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+@keyframes fun-blitz-urgent {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.04); filter: brightness(1.15); }
+}
+
+.fun-danger {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 13px;
+  color: #fff;
+  background: #c62828;
+  border-radius: 10px;
+  padding: 8px 12px;
+  animation: fun-danger-blink 0.7s ease infinite;
+}
+
+@keyframes fun-danger-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+body.fun-danger-active .game-container {
+  box-shadow: 0 0 0 4px rgba(198, 40, 40, 0.55), 0 0 30px rgba(198, 40, 40, 0.35) !important;
+  animation: fun-board-danger 0.8s ease infinite;
+}
+
+@keyframes fun-board-danger {
+  0%, 100% { filter: saturate(1); }
+  50% { filter: saturate(1.3) brightness(1.05); }
+}
+
+body.fun-blitz-active .game-wrap {
+  background: #fff !important;
+}
+
+body.fun-blitz-active .game-hero-visual .title,
+body.fun-blitz-active .game-intro,
+body.fun-blitz-active .mobile-play-hint {
+  color: #4A3728 !important;
+  text-shadow: none;
+}
+
+/* D-pad — in-flow under board (no floating overlap) */
+.fun-dpad {
+  display: none;
+  position: relative;
+  width: 132px;
+  height: 132px;
+  margin: 14px auto 8px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.fun-dpad__btn {
+  pointer-events: auto;
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #FF6B95 0%, #FF8FA8 100%);
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 107, 149, 0.35);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.fun-dpad__btn--press {
+  transform: scale(0.9);
+  background: linear-gradient(135deg, #FF8FA8 0%, #FF6B95 100%);
+}
+
+.fun-dpad__up { top: 0; left: 44px; }
+.fun-dpad__left { top: 44px; left: 0; }
+.fun-dpad__down { top: 88px; left: 44px; }
+.fun-dpad__right { top: 44px; left: 88px; }
+
+@media (hover: none) and (pointer: coarse) {
+  .fun-dpad { display: block; }
+}
+
+@media (max-width: 720px) {
+  .fun-dpad { display: block; }
+}
+
+.fun-flavor-line {
+  position: fixed;
+  left: 50%;
+  top: 18%;
+  transform: translateX(-50%) translateY(-10px) scale(0.9);
+  z-index: 9500;
+  background: rgba(255, 255, 255, 0.96);
+  color: #582e74;
+  font-weight: bold;
+  font-size: clamp(15px, 4vw, 20px);
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 3px solid #f67098;
+  box-shadow: 0 12px 40px rgba(88, 46, 116, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+  max-width: min(90vw, 420px);
+  text-align: center;
+}
+
+.fun-flavor-line--show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.fun-toast {
+  position: fixed;
+  left: 50%;
+  top: 14px;
+  transform: translateX(-50%) translateY(-12px);
+  z-index: 10050;
+  background: #582e74;
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 12px;
+  text-align: center;
+  opacity: 0;
+  transition: 0.3s;
+  max-width: min(90vw, 360px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.fun-toast strong { display: block; font-size: 15px; }
+.fun-toast small { display: block; margin-top: 4px; opacity: 0.9; font-size: 12px; }
+.fun-toast--in { opacity: 1; transform: translateX(-50%) translateY(0); }
+.fun-toast--out { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+
+.fun-victory-card {
+  position: fixed;
+  inset: 0;
+  z-index: 12000;
+  background: rgba(45, 20, 60, 0.72);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.fun-victory-card[hidden] { display: none !important; }
+
+.fun-victory-card__panel {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px 16px 16px;
+  width: min(560px, 100%);
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+  border: 4px solid #f67098;
+  animation: fun-card-in 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes fun-card-in {
+  from { transform: scale(0.8) translateY(20px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.fun-victory-card__panel h3 {
+  margin: 0 0 12px;
+  color: #582e74;
+  font-size: 22px;
+}
+
+.fun-victory-card__close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  color: #888;
+}
+
+#fun-card-canvas {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+.fun-victory-card__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.fun-victory-card__actions .game-btn {
+  flex: 1;
+  min-width: 120px;
+}
+
+body.fun-combo-hot .game-container {
+  box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.7), 0 0 40px rgba(246, 112, 152, 0.45) !important;
+}

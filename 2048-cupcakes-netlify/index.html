@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Cupcakes 2048 — Play Free Online Merge Puzzle | Rainbow Goal</title>
+  <meta name="description" content="Cupcakes 2048 online: merge matching flavors, climb the dessert ladder, track Kcal, and aim for Rainbow. Free puzzle fun on phone and desktop.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="google-site-verification" content="qAim0I8sXkeaXlj5JqkbFQKEiRjQhgf1XsA63uEkpdU">
+  <meta name="author" content="2048 Cupcakes">
+  <link rel="canonical" id="canonical-link" href="./">
+  <meta property="og:title" content="Cupcakes 2048 — Play Free Online Merge Puzzle">
+  <meta property="og:description" content="A tasty 2048-style merge puzzle with cupcake tiers, Kcal scores, undo, and swipe-friendly mobile play.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" id="og-url" content="./">
+  <meta property="og:image" id="og-image" content="./style/img/2048.jpg">
+  <meta property="og:image:alt" content="2048 Cupcakes game board with colorful cupcake tiles">
+  <meta property="og:site_name" content="2048 Cupcakes">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cupcakes 2048 — Play Free Online Merge Puzzle">
+  <meta name="twitter:description" content="Merge cupcakes, beat your best Kcal, reach Rainbow. Free online — play now!">
+  <meta name="twitter:image" id="twitter-image" content="./style/img/2048.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#FF6B95">
+  <meta name="format-detection" content="telephone=no">
+
+  <link rel="icon" href="favicon.png" type="image/png" sizes="48x48">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+  <link rel="preload" as="image" href="style/img/bg.webp" type="image/webp" fetchpriority="high">
+
+  <style>
+  *,*::before,*::after{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;padding:0;background:#fff;color:#4A3728;font-family:"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:16px;line-height:1.5}.site-body{padding-top:0!important;background:#fff!important;background-image:none!important}img{max-width:100%;height:auto}.skip-link{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}.skip-link:focus{left:12px;top:12px;width:auto;height:auto;z-index:9999;padding:8px 12px;background:#b0104a;color:#fff}#site-header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.92);border-bottom:1px solid rgba(176,16,74,.12);min-height:57px}.site-header__inner{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#4A3728;min-width:0}.site-logo__icon img{width:40px;height:40px;border-radius:10px;display:block;object-fit:cover}.site-logo__text{font-weight:700;font-size:18px;line-height:1.15;white-space:nowrap}.site-logo__text small{display:block;font-size:10px;font-weight:600;color:#b0104a;letter-spacing:.08em;text-transform:uppercase}.site-nav-toggle{border:0;background:transparent;font-size:22px;padding:8px;cursor:pointer;color:#4A3728}.site-nav{display:none}.site-main{padding:8px 0 40px}.game-wrap .container{width:min(520px,100%);margin:0 auto;padding:0 12px}.game-hero-visual{text-align:center;position:relative}.game-hero-cupcake{display:block;margin:0 auto;width:min(280px,72vw);height:auto}.game-hero-visual .title{position:relative;margin:-40px 0 4px;z-index:2;font-size:clamp(48px,12vw,80px);font-weight:700;color:#4A3728;line-height:.95;text-align:center}.game-hero-visual .title small{font-size:.72em}.heading{width:100%;margin:4px 0 8px}.scores-container{display:flex!important;gap:2%}.score-container,.best-container,.score-points,.best-points{flex:1;position:relative;background:#FFE8F0;padding:26px 0 10px;font-size:clamp(18px,4.5vw,24px);line-height:1.2;font-weight:700;border-radius:4px;color:#5c0a2a;margin:6px 0;text-align:center;min-height:58px;border:1px solid rgba(194,24,91,.22)}.score-container:after,.best-container:after,.score-points:after,.best-points:after{position:absolute;width:100%;top:8px;left:0;text-transform:uppercase;font-size:12px;line-height:13px;text-align:center;color:#8B2F4B}.score-points:after{content:"Score"}.best-points:after{content:"Best"}.score-container:after{content:"Kcal"}.best-container:after{content:"Best Kcal"}.above-game{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.game-intro{margin:0;font-size:clamp(15px,3.5vw,22px)}.game-controls{display:flex;gap:8px}.restart-button,.settings-button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border:0;border-radius:25px;font-weight:600;cursor:pointer;font-family:inherit}.restart-button{background:linear-gradient(135deg,#c2185b,#e04578);color:#fff}.settings-button{background:#fff;color:#4A3728;border:1px solid rgba(176,16,74,.2)}.mobile-play-hint{text-align:center;color:#6B5B4F;font-size:13px;margin:8px 0}.game-container{position:relative;padding:15px;background:#f67098;border-radius:6px;margin-top:8px;width:500px;max-width:100%;height:500px;max-height:min(500px,100vw);box-sizing:border-box;touch-action:none;margin-left:auto;margin-right:auto}.grid-container{position:absolute;z-index:1}.grid-row{margin-bottom:15px}.grid-row:last-child{margin-bottom:0}.grid-row:after{content:"";display:block;clear:both}.grid-cell{width:106.25px;height:106.25px;margin-right:15px;float:left;border-radius:3px;background:rgba(255,255,255,.35)}.grid-cell:last-child{margin-right:0}.tile-container{position:absolute;z-index:2}.game-message{display:none}
+@media (max-width:520px){.game-wrap .container{width:min(100%,360px);padding:0 8px}.game-container{width:min(100%,320px);height:auto;aspect-ratio:1/1;padding:10px;margin-top:8px}.grid-row{margin-bottom:10px}.grid-cell{width:auto;height:auto}.game-hero-cupcake{width:min(140px,36vw)}.game-hero-visual .title{margin-top:-24px;font-size:clamp(32px,10vw,48px)}}
+@media (max-width:768px){.site-nav-toggle{display:block}.site-nav{display:none}}
+@media (min-width:769px){.site-nav-toggle{display:none}.site-nav{display:flex;align-items:center;gap:16px;list-style:none;margin:0;padding:0}.site-nav a{color:#4A3728;text-decoration:none;font-weight:500;font-size:15px}}
+  </style>
+
+  <link rel="preload" href="css/app.min.css?v=38" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/app.min.css?v=38"></noscript>
+  <link rel="preload" href="style/fonts/clear-sans.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+  <script src="js/site-config.min.js?v=7" defer></script>
+  <script>
+    // LiteSpeed-style delayed CSS / fonts (after first paint)
+    (function () {
+      var booted = false;
+      function loadStyle(href) {
+        if (document.querySelector('link[href="' + href + '"]')) return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet";
+        l.href = href;
+        document.head.appendChild(l);
+      }
+      function bootExtras() {
+        if (booted) return;
+        booted = true;
+        loadStyle("css/extras.min.css?v=38");
+        loadStyle("css/content.min.css?v=38");
+        if (!document.querySelector("link[data-gfonts]")) {
+          var f = document.createElement("link");
+          f.rel = "stylesheet";
+          f.href = "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=optional";
+          f.setAttribute("data-gfonts", "1");
+          document.head.appendChild(f);
+        }
+        var mount = document.getElementById("guide-mount");
+        var src = mount && mount.getAttribute("data-guide-src");
+        function loadContentUi() {
+          if (document.querySelector("script[data-content-ui]")) return;
+          var s = document.createElement("script");
+          s.src = "js/content-ui.min.js?v=9";
+          s.setAttribute("data-content-ui", "1");
+          (document.body || document.head).appendChild(s);
+        }
+        if (mount && src) {
+          fetch(src, { credentials: "same-origin" })
+            .then(function (r) {
+              if (!r.ok) throw new Error("guide " + r.status);
+              return r.text();
+            })
+            .then(function (html) {
+              mount.outerHTML = html;
+              loadContentUi();
+            })
+            .catch(function () {
+              var st = document.getElementById("guide-loading-status");
+              if (st) st.innerHTML = 'Could not load guide. <a href="how-to-play.html">Open How to Play</a>';
+              loadContentUi();
+            });
+        } else {
+          loadContentUi();
+        }
+      }
+      // Below-fold guide/CSS: after first paint settles (mobile SI/LCP), or on scroll/tap
+      function scheduleGuide() {
+        if ("requestIdleCallback" in window) requestIdleCallback(bootExtras, { timeout: 5500 });
+        else setTimeout(bootExtras, 4500);
+      }
+      if (document.readyState === "complete") scheduleGuide();
+      else window.addEventListener("load", scheduleGuide);
+      window.addEventListener("scroll", function onScroll() {
+        if ((window.pageYOffset || 0) > 280) {
+          window.removeEventListener("scroll", onScroll);
+          bootExtras();
+        }
+      }, { passive: true });
+      window.addEventListener("pointerdown", function onGuideGesture() {
+        bootExtras();
+      }, { once: true, passive: true, capture: true });
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "2048 Cupcakes",
+    "url": "./",
+    "image": "./style/img/2048.jpg",
+    "description": "Free online 2048 cupcake puzzle game with undo, sound effects, achievements, daily challenge, and mobile swipe support.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is 2048 Cupcakes Free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, it is free to play and does not require any payment. You can start playing directly from your PC or mobile browser without downloading anything or paying any hidden charges."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I win the cupcake game?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To win, focus on making smart moves, keeping your board organized, and merging matching cupcakes strategically. Plan ahead, save empty spaces, and avoid random moves to reach higher cupcake levels."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it available on mobile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Cupcakes 2048 is available on mobile devices. You can play it on your smartphone using a mobile browser with simple touch controls."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the final cupcake?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The final cupcake is the Rainbow Cupcake. It is the highest-level cupcake in the game and features a colorful rainbow design."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it save progress?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, it may save your progress through your browser data. If you clear your cache or use a different device, your saved game may not be available."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "./"
+      }
+    ]
+  }
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    if (window.SiteConfig) SiteConfig.applySeoMeta({ pagePath: "", image: "style/img/2048.jpg" });
+  });
+  </script>
+</head>
+<body class="site-body" data-page="home">
+
+  <a class="skip-link" href="#game">Skip to game</a>
+  <div id="reading-progress" aria-hidden="true"></div>
+
+  <header id="site-header">
+    <noscript>
+      <div class="site-header__inner">
+        <a href="index.html" class="site-logo"><span class="site-logo__icon" aria-hidden="true"><img src="style/img/bg.webp" alt="" width="48" height="48"></span><span class="site-logo__text">2048 Cupcakes<small>Free Online Puzzle</small></span></a>
+        <ul class="site-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="how-to-play.html">How to Play</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html#game" class="site-nav__cta">Play Now</a></li>
+        </ul>
+      </div>
+    </noscript>
+  </header>
+
+  <main class="site-main">
+    <!-- Game first — visible immediately on load -->
+    <section class="game-wrap" id="game" aria-label="2048 Cupcakes game">
+      <div class="container">
+        <div class="game-hero-visual">
+          <img src="style/img/bg.webp" alt="2048 Cupcakes — free cupcake puzzle game" class="game-hero-cupcake" width="280" height="280" fetchpriority="high" decoding="async">
+          <p class="title">2048 <small>Cupcakes</small></p>
+        </div>
+
+        <div class="heading">
+          <div class="scores-container">
+            <div class="score-points">0</div>
+            <div class="best-points">0</div>
+          </div>
+          <div class="scores-container">
+            <div class="score-container">0 Kcal</div>
+            <div class="best-container">0 Kcal</div>
+          </div>
+        </div>
+
+        <div class="above-game">
+          <p class="game-intro">Join the <strong>Cupcakes!</strong></p>
+          <div class="game-controls">
+            <button type="button" class="restart-button">Play Again</button>
+            <button type="button" class="settings-button" id="btn-settings" aria-label="Game settings" title="Settings">⚙</button>
+          </div>
+        </div>
+
+        <p class="mobile-play-hint">👆 Swipe to move · Desktop: arrow keys or WASD</p>
+
+        <div class="game-container">
+          <div class="game-message">
+            <p></p>
+            <div class="lower">
+              <button type="button" class="keep-playing-button">Keep going</button>
+              <button type="button" class="retry-button">Retry</button>
+              <div class="score-sharing"></div>
+            </div>
+          </div>
+          <div class="grid-container">
+            <div class="grid-row"><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div></div>
+            <div class="grid-row"><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div></div>
+            <div class="grid-row"><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div></div>
+            <div class="grid-row"><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div></div>
+          </div>
+          <div class="tile-container"></div>
+        </div>
+
+        <details class="game-legend-collapse">
+          <summary>📋 Tile Legend &amp; Kcal Values</summary>
+          <div class="tile-legend-list tile-legend" id="tile-legend-content"></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="guide" id="guide-mount" data-guide-src="partials/guide.html">
+      <header class="guide-lead guide-section">
+        <div class="guide-inner">
+          <h1>2048 Cupcakes Game: How to Play, Winning Strategies, Levels, Tips &amp; Complete Guide</h1>
+          <p>2048 Cupcakes is a fun twist on the classic 2048 puzzle — merge cupcakes, climb the flavor ladder, and reach Rainbow. The full guide loads just below.</p>
+          <p id="guide-loading-status" style="color:#6B5B4F;font-size:.95rem">Loading guide…</p>
+        </div>
+      </header>
+      <noscript>
+        <p style="text-align:center;padding:1rem"><a href="how-to-play.html">Read the complete how-to-play guide</a></p>
+      </noscript>
+    </div>
+  </main>
+
+  <footer id="site-footer">
+    <noscript>
+      <nav aria-label="Footer">
+        <a href="index.html#game">Play</a> ·
+        <a href="how-to-play.html">How to Play</a> ·
+        <a href="about.html">About</a> ·
+        <a href="contact.html">Contact</a> ·
+        <a href="privacy-policy.html">Privacy</a> ·
+        <a href="terms.html">Terms</a>
+      </nav>
+    </noscript>
+  </footer>
+
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top" hidden>↑</button>
+
+  <script src="js/site.min.js?v=14" defer></script>
+  <script>
+    // Core = tiles/board logic (idle). Extras = sound/missions (only after gesture).
+    (function () {
+      var core = false;
+      var extras = false;
+      function inject(src, attr, cb) {
+        if (document.querySelector("script[" + attr + "]")) { if (cb) cb(); return; }
+        var s = document.createElement("script");
+        s.src = src;
+        s.setAttribute(attr, "1");
+        if (cb) s.onload = cb;
+        document.body.appendChild(s);
+      }
+      function loadExtras() {
+        if (extras) return;
+        extras = true;
+        inject("js/game-extras.min.js?v=38", "data-game-extras");
+      }
+      function loadCore(thenExtras) {
+        if (core) {
+          if (thenExtras) loadExtras();
+          return;
+        }
+        core = true;
+        inject("js/game-core.min.js?v=38", "data-game-core", function () {
+          if (thenExtras) loadExtras();
+        });
+      }
+      function onGesture() {
+        loadCore(true);
+        ["pointerdown", "touchstart", "keydown"].forEach(function (ev) {
+          window.removeEventListener(ev, onGesture, true);
+        });
+      }
+      ["pointerdown", "touchstart", "keydown"].forEach(function (ev) {
+        window.addEventListener(ev, onGesture, { once: true, passive: true, capture: true });
+      });
+      window.addEventListener("load", function () {
+        // Late fallback for keyboard-only users (after Lighthouse SI window)
+        setTimeout(function () {
+          window.addEventListener("keydown", onGesture, { once: true, passive: true });
+          if ("requestIdleCallback" in window) requestIdleCallback(function () { loadCore(false); }, { timeout: 8000 });
+          else setTimeout(function () { loadCore(false); }, 7000);
+        }, 3000);
+      });
+    })();
+  </script>
+</body>
+</html>

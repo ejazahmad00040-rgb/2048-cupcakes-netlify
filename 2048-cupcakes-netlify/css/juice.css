@@ -1,0 +1,598 @@
+@import url(../style/fonts/clear-sans.css);
+
+/* ═══ PARTY MODE — keep white scaffold (no dark/pink section bg) ═══ */
+.party-mode-active .game-wrap {
+  background: #fff !important;
+  position: relative;
+  overflow: visible;
+}
+
+.party-mode-active .game-wrap::before {
+  display: none !important;
+  content: none !important;
+}
+
+@keyframes party-bg-shift {
+  from { opacity: 0.6; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.05); }
+}
+
+/* ═══ START OVERLAY ═══ */
+.game-start-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(77, 37, 35, 0.82);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: overlay-in 0.4s ease;
+}
+
+.game-start-overlay--hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s;
+}
+
+@keyframes overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.game-start-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 40px 36px;
+  text-align: center;
+  max-width: 400px;
+  border: 5px solid #f67098;
+  box-shadow: 0 24px 80px rgba(88, 46, 116, 0.5), 0 0 60px rgba(246,112,152,0.3);
+  animation: card-pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes card-pop {
+  from { transform: scale(0.7) rotate(-3deg); opacity: 0; }
+  to { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+.game-start-card__emoji {
+  font-size: 72px;
+  margin-bottom: 12px;
+  animation: emoji-bounce 0.8s ease infinite alternate;
+}
+
+@keyframes emoji-bounce {
+  from { transform: translateY(0) scale(1); }
+  to { transform: translateY(-12px) scale(1.1); }
+}
+
+.game-start-card h2 {
+  margin: 0 0 10px;
+  color: #582e74;
+  font-size: 34px;
+}
+
+.game-start-card p {
+  margin: 0 0 24px;
+  color: #4d2523;
+  line-height: 1.5;
+  font-size: 17px;
+}
+
+.game-start-card small {
+  display: block;
+  margin-top: 14px;
+  color: #999;
+  font-size: 13px;
+}
+
+.game-start-btn {
+  background: linear-gradient(135deg, #f67098, #582e74);
+  color: #fff;
+  border: none;
+  padding: 18px 48px;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 8px 32px rgba(246, 112, 152, 0.6);
+  animation: btn-pulse 1.2s ease infinite;
+}
+
+@keyframes btn-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 8px 24px rgba(246,112,152,0.5); }
+  50% { transform: scale(1.08); box-shadow: 0 16px 40px rgba(246,112,152,0.8); }
+}
+
+.game-start-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ═══ COMBO HUD — always visible ═══ */
+.juice-combo-hud {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 8500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 16px;
+  pointer-events: none;
+  transition: all 0.25s ease;
+  border: 3px solid rgba(255,255,255,0.6);
+}
+
+.juice-combo-hud--idle {
+  background: rgba(255, 107, 149, 0.85);
+  color: rgba(255, 255, 255, 0.85);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.85);
+}
+
+.juice-combo-hud--warm {
+  background: linear-gradient(135deg, #FF6B95, #FF8FA8);
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(255, 107, 149, 0.45);
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.juice-combo-hud--hot {
+  background: linear-gradient(135deg, #FF6B95, #FF8FA8, #FFB3C6);
+  background-size: 200% 200%;
+  color: #fff;
+  opacity: 1;
+  visibility: visible;
+  font-size: 18px;
+  box-shadow: 0 8px 32px rgba(255,107,157,0.6);
+  animation: combo-hud-glow 0.6s ease infinite alternate, combo-bg-shift 1.5s ease infinite;
+  transform: scale(1.08);
+}
+
+@keyframes combo-hud-glow {
+  from { box-shadow: 0 8px 32px rgba(255,107,157,0.5); }
+  to { box-shadow: 0 12px 48px rgba(255,215,0,0.7); }
+}
+
+@keyframes combo-bg-shift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.juice-combo-hud__fire {
+  font-size: 22px;
+}
+
+.juice-combo-hud--hot .juice-combo-hud__fire {
+  animation: fire-wiggle 0.3s ease infinite alternate;
+}
+
+@keyframes fire-wiggle {
+  from { transform: rotate(-8deg) scale(1); }
+  to { transform: rotate(8deg) scale(1.2); }
+}
+
+/* ═══ FLOATING KCAL ═══ */
+.juice-float-kcal {
+  position: fixed;
+  z-index: 9200;
+  pointer-events: none;
+  font-size: 36px;
+  font-weight: 900;
+  color: #ffd700;
+  text-shadow:
+    0 0 12px rgba(255,215,0,1),
+    3px 3px 0 #582e74,
+    -2px -2px 0 #fff;
+  transform: translate(-50%, -50%);
+  animation: float-kcal-up 1s ease forwards;
+}
+
+@keyframes float-kcal-up {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(0.5); }
+  30% { opacity: 1; transform: translate(-50%, -80%) scale(1.3); }
+  100% { opacity: 0; transform: translate(-50%, -160%) scale(1); }
+}
+
+/* ═══ MERGE POPUP — big cupcake reveal ═══ */
+.juice-merge-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 9800;
+  background: rgba(77, 37, 35, 0.7);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.juice-merge-popup--show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.juice-merge-popup__card {
+  background: #fff;
+  border-radius: 28px;
+  padding: 32px 28px 28px;
+  text-align: center;
+  max-width: 320px;
+  width: 100%;
+  border: 5px solid #ffd700;
+  box-shadow: 0 24px 80px rgba(88,46,116,0.5), 0 0 80px rgba(255,215,0,0.4);
+  position: relative;
+  animation: popup-slam 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popup-slam {
+  from { transform: scale(0.3) rotate(-10deg); opacity: 0; }
+  to { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+.juice-merge-popup__close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #999;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.juice-merge-popup__img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #f67098;
+  box-shadow: 0 8px 32px rgba(246,112,152,0.4);
+  animation: popup-img-spin 0.6s ease;
+}
+
+@keyframes popup-img-spin {
+  from { transform: rotate(-180deg) scale(0); }
+  to { transform: rotate(0) scale(1); }
+}
+
+.juice-merge-popup__badge {
+  display: inline-block;
+  margin-top: 14px;
+  background: linear-gradient(135deg, #ffd700, #f67098);
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+}
+
+.juice-merge-popup__title {
+  margin: 12px 0 4px;
+  color: #582e74;
+  font-size: 22px;
+  text-transform: capitalize;
+}
+
+.juice-merge-popup__kcal {
+  margin: 0;
+  color: #f67098;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* ═══ SCREEN FLASH ═══ */
+.juice-flash {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.juice-flash--on {
+  animation: flash-bang 0.45s ease forwards;
+}
+
+@keyframes flash-bang {
+  0% { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+
+/* ═══ TOAST notifications ═══ */
+.juice-toast-zone {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  pointer-events: none;
+  width: 92%;
+  max-width: 440px;
+}
+
+.juice-toast {
+  background: linear-gradient(135deg, #582e74, #f67098);
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 22px;
+  font-weight: bold;
+  box-shadow: 0 8px 32px rgba(88, 46, 116, 0.5);
+  animation: toast-in 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-align: center;
+  border: 3px solid rgba(255,255,255,0.6);
+}
+
+.juice-toast--big {
+  font-size: 26px;
+  background: linear-gradient(135deg, #f67098, #ffd700);
+  color: #4d2523;
+}
+
+.juice-toast--combo {
+  background: linear-gradient(135deg, #ff6b9d, #ffd700);
+  color: #fff;
+  font-size: 28px;
+  animation: toast-in 0.3s ease, combo-wiggle 0.4s ease 0.3s;
+}
+
+@keyframes combo-wiggle {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-4deg) scale(1.08); }
+  75% { transform: rotate(4deg) scale(1.08); }
+}
+
+.juice-toast--epic {
+  padding: 28px 36px;
+  border-radius: 24px;
+  font-size: 20px;
+  background: linear-gradient(135deg, #4a2560, #f67098, #ffd700);
+  animation: toast-in 0.4s ease, epic-pulse 0.8s ease infinite alternate;
+}
+
+.juice-toast--epic strong {
+  display: block;
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.juice-toast--epic span {
+  display: block;
+  font-size: 17px;
+  font-weight: normal;
+  text-transform: capitalize;
+}
+
+@keyframes epic-pulse {
+  from { box-shadow: 0 8px 32px rgba(255,215,0,0.4); transform: scale(1); }
+  to { box-shadow: 0 16px 56px rgba(255,215,0,0.8); transform: scale(1.03); }
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(-40px) scale(0.6); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.juice-toast--out {
+  opacity: 0;
+  transform: translateY(-24px) scale(0.85);
+  transition: all 0.35s ease;
+}
+
+/* ═══ PAGE SHAKE ═══ */
+.juice-shake {
+  animation: juice-shake-anim 0.35s ease;
+}
+
+.juice-shake--big {
+  animation: juice-shake-big 0.55s ease;
+}
+
+@keyframes juice-shake-anim {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-10px); }
+  40% { transform: translateX(10px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+
+@keyframes juice-shake-big {
+  0%, 100% { transform: translateX(0); }
+  15% { transform: translateX(-16px) rotate(-0.8deg); }
+  30% { transform: translateX(16px) rotate(0.8deg); }
+  45% { transform: translateX(-10px); }
+  60% { transform: translateX(10px); }
+  75% { transform: translateX(-5px); }
+}
+
+/* ═══ TILE BOOM ═══ */
+.juice-tile-boom .tile-inner {
+  animation: juice-boom 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  box-shadow: 0 0 24px 6px rgba(255, 215, 0, 0.8) !important;
+}
+
+.juice-tile-boom--big .tile-inner {
+  animation: juice-boom-big 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  box-shadow: 0 0 40px 12px rgba(255, 215, 0, 1) !important;
+}
+
+@keyframes juice-boom {
+  0% { transform: scale(0.3); }
+  45% { transform: scale(1.45); }
+  100% { transform: scale(1); }
+}
+
+@keyframes juice-boom-big {
+  0% { transform: scale(0.2) rotate(-10deg); }
+  40% { transform: scale(1.55) rotate(5deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+/* ═══ BOARD PULSE on merge ═══ */
+.juice-board-pulse {
+  animation: board-pulse-ring 0.5s ease !important;
+}
+
+@keyframes board-pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(246,112,152,0.8), 0 12px 40px rgba(88,46,116,0.2); }
+  50% { box-shadow: 0 0 0 12px rgba(255,215,0,0.5), 0 16px 48px rgba(246,112,152,0.4); }
+  100% { box-shadow: 0 0 0 4px rgba(246,112,152,0.3), 0 12px 40px rgba(88,46,116,0.2); }
+}
+
+.game-container {
+  box-shadow: 0 0 0 4px rgba(246, 112, 152, 0.35), 0 12px 40px rgba(88, 46, 116, 0.25);
+  transition: box-shadow 0.3s;
+}
+
+/* ═══ ALWAYS-ON neon board in party mode ═══ */
+.party-mode-active .game-container {
+  animation: neon-border 2s ease-in-out infinite alternate;
+  border-radius: 8px;
+}
+
+@keyframes neon-border {
+  from { box-shadow: 0 0 8px 2px #f67098, 0 0 20px 4px rgba(246,112,152,0.4), 0 12px 40px rgba(88,46,116,0.25); }
+  to { box-shadow: 0 0 12px 4px #ffd700, 0 0 30px 8px rgba(255,215,0,0.5), 0 16px 48px rgba(246,112,152,0.35); }
+}
+
+/* ═══ SPARKLE canvas behind game ═══ */
+.juice-sparkle-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.party-mode-active .game-wrap .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ═══ FULL-SCREEN MERGE SPLASH — center, huge ═══ */
+.juice-splash-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 9600;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.juice-merge-splash {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  animation: splash-slam 0.85s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.juice-merge-splash--out {
+  animation: splash-out 0.45s ease forwards !important;
+}
+
+@keyframes splash-slam {
+  0% { opacity: 0; transform: scale(0.2) rotate(-8deg); }
+  25% { opacity: 1; transform: scale(1.25) rotate(2deg); }
+  50% { transform: scale(1.1) rotate(0); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes splash-out {
+  to { opacity: 0; transform: scale(1.4); }
+}
+
+.juice-merge-splash__ring {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 6px solid rgba(255,215,0,0.6);
+  animation: ring-expand 0.8s ease forwards;
+}
+
+@keyframes ring-expand {
+  from { transform: scale(0.3); opacity: 1; }
+  to { transform: scale(1.8); opacity: 0; }
+}
+
+.juice-merge-splash__emoji {
+  font-size: 72px;
+  line-height: 1;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+  animation: emoji-pop 0.5s ease;
+}
+
+.juice-merge-splash__word {
+  font-size: clamp(48px, 12vw, 80px);
+  font-weight: 900;
+  color: #fff;
+  text-shadow:
+    0 0 20px rgba(255,215,0,0.9),
+    0 4px 0 #582e74,
+    0 8px 24px rgba(88,46,116,0.6);
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  margin-top: 4px;
+}
+
+.juice-merge-splash__sub {
+  font-size: clamp(22px, 5vw, 32px);
+  font-weight: bold;
+  color: #ffd700;
+  text-shadow: 0 2px 8px rgba(88,46,116,0.5);
+  margin-top: 8px;
+}
+
+@keyframes emoji-pop {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
+/* ═══ EMOJI BURST from merge cell ═══ */
+.juice-emoji-burst {
+  position: fixed;
+  z-index: 9400;
+  pointer-events: none;
+  font-size: 32px;
+  transform: translate(-50%, -50%);
+  animation: emoji-fly 0.75s ease-out forwards;
+}
+
+@keyframes emoji-fly {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(0.5); }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--ex)), calc(-50% + var(--ey))) scale(1.2); }
+}
+
+.sound-unlock-hint { display: none !important; }
+
+/* Hide floating combo on mobile — keep screen clean like reference */
+@media (max-width: 600px) {
+  .juice-combo-hud { display: none; }
+  .juice-toast { font-size: 18px; padding: 12px 24px; }
+  .juice-float-kcal { font-size: 26px; }
+  .juice-merge-splash__emoji { font-size: 56px; }
+}

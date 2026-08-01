@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#FF6B95">
+  <meta name="author" content="2048 Cupcakes">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="2048 Cupcakes">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.png" type="image/png" sizes="48x48"><link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="css/site.min.css?v=28" rel="stylesheet">
+  <link href="css/responsive.min.css?v=26" rel="stylesheet">
+  <script src="js/site-config.min.js?v=7"></script>
+  <title>Contact — Cupcakes 2048 Online Puzzle</title>
+  <meta name="description" content="Contact the Cupcakes 2048 team for feedback, ideas, or bug reports about the free online puzzle.">
+  <link rel="canonical" id="canonical-link" href="./contact.html">
+  <meta property="og:title" content="Contact 2048 Cupcakes">
+  <meta property="og:description" content="Contact the Cupcakes 2048 team for feedback, ideas, or bug reports about the free online puzzle.">
+  <meta property="og:url" id="og-url" content="./contact.html">
+  <meta property="og:image" id="og-image" content="./style/img/2048.jpg">
+  <meta name="twitter:title" content="Contact 2048 Cupcakes">
+  <meta name="twitter:description" content="Contact 2048 Cupcakes — send feedback or report a bug about the free online cupcake puzzle game.">
+  <meta name="twitter:image" id="twitter-image" content="./style/img/2048.jpg">
+  <script>
+    if (window.SiteConfig) SiteConfig.applySeoMeta({ pagePath: "contact.html", image: "style/img/2048.jpg" });
+  </script>
+</head>
+<body class="site-body" data-page="contact">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header id="site-header">
+    <noscript>
+      <div class="site-header__inner">
+        <a href="index.html" class="site-logo"><span class="site-logo__icon" aria-hidden="true"><img src="style/img/bg.jpg" alt="" width="48" height="48"></span><span class="site-logo__text">2048 Cupcakes<small>Free Online Puzzle</small></span></a>
+        <ul class="site-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="how-to-play.html">How to Play</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html#game" class="site-nav__cta">Play Now</a></li>
+        </ul>
+      </div>
+    </noscript>
+  </header>
+
+  <main class="site-main site-main--page" id="main-content">
+    <div class="site-container page-content">
+      <div class="page-header">
+        <h1>Contact</h1>
+        <p>Feedback, ideas, or bug reports welcome</p>
+      </div>
+      <p>This is a free fan-made game with no support team. The best ways to reach us:</p>
+      <ul>
+        <li id="contact-github" hidden>Open an issue on GitHub (link appears after deploy config is set).</li>
+        <li id="contact-email" hidden></li>
+        <li>Or use the form below — it opens your email app with a draft message.</li>
+      </ul>
+      <form class="contact-form" id="contact-form">
+        <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" required placeholder="Your name" autocomplete="name"></div>
+        <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email"></div>
+        <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" required placeholder="Feedback, bug report, or question..."></textarea></div>
+        <button type="submit" class="btn-primary">Open Email Draft</button>
+      </form>
+      <p class="contact-info" id="contact-fallback">After you share your GitHub repo, we can wire this page to Issues or your real email.</p>
+    </div>
+  </main>
+  <footer id="site-footer">
+    <noscript>
+      <nav aria-label="Footer">
+        <a href="index.html#game">Play</a> ·
+        <a href="how-to-play.html">How to Play</a> ·
+        <a href="about.html">About</a> ·
+        <a href="contact.html">Contact</a> ·
+        <a href="privacy-policy.html">Privacy</a> ·
+        <a href="terms.html">Terms</a>
+      </nav>
+    </noscript>
+  </footer>
+
+  <script src="js/site.min.js?v=14" defer></script>
+  <script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+      var cfg = window.SiteConfig || {};
+      var gh = document.getElementById("contact-github");
+      var em = document.getElementById("contact-email");
+      if (cfg.GITHUB_ISSUES && gh) {
+        gh.hidden = false;
+        gh.innerHTML = 'Open an issue: <a href="' + cfg.GITHUB_ISSUES + '" target="_blank" rel="noopener noreferrer">GitHub Issues</a>';
+      }
+      if (cfg.CONTACT_EMAIL && em) {
+        em.hidden = false;
+        em.innerHTML = 'Email: <a href="mailto:' + cfg.CONTACT_EMAIL + '">' + cfg.CONTACT_EMAIL + "</a>";
+      }
+      var form = document.getElementById("contact-form");
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var name = document.getElementById("name").value.trim();
+          var email = document.getElementById("email").value.trim();
+          var message = document.getElementById("message").value.trim();
+          var to = cfg.CONTACT_EMAIL || "hello@example.com";
+          var subject = encodeURIComponent("2048 Cupcakes feedback from " + name);
+          var body = encodeURIComponent("From: " + name + " <" + email + ">\n\n" + message);
+          location.href = "mailto:" + to + "?subject=" + subject + "&body=" + body;
+        });
+      }
+    });
+  </script>
+</body>
+</html>
