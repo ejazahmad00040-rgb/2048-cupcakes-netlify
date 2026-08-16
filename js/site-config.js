@@ -6,7 +6,7 @@
  * - GOOGLE_SITE_VERIFICATION: Search Console → HTML tag method → content="...." value only
  */
 window.SiteConfig = {
-  SITE_URL: "" /* auto: uses current domain after deploy */,
+  SITE_URL: "https://2048cupcakess.netlify.app" /* primary Netlify host */,
 
   SITE_NAME: "2048 Cupcakes",
   CONTACT_EMAIL: "",
