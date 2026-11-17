@@ -543,6 +543,20 @@ header.site-header {
   transform: scale(1.05) !important;
 }
 
+#site-header .site-nav__drop-btn {
+  color: #4A3728 !important;
+  background: transparent !important;
+}
+
+#site-header .site-nav__drop-menu a:not(.site-nav__cta) {
+  padding: 10px 14px !important;
+}
+
+#site-header .site-nav__drop-menu a:not(.site-nav__cta)::after {
+  display: none !important;
+  content: none !important;
+}
+
 #site-header .site-nav a:not(.site-nav__cta) {
   position: relative !important;
   color: #4A3728 !important;

@@ -15,11 +15,65 @@
     { href: "contact.html", label: "Contact", id: "contact" }
   ];
 
+  var legalItems = [
+    { href: "about.html", label: "About Us", id: "about" },
+    { href: "privacy-policy.html", label: "Privacy Policy", id: "privacy" },
+    { href: "terms.html", label: "Terms &amp; Conditions", id: "terms" },
+    { href: "disclaimer.html", label: "Disclaimer", id: "disclaimer" },
+    { href: "editorial-policy.html", label: "Editorial Policy", id: "editorial" },
+    { href: "cookie-policy.html", label: "Cookie Policy", id: "cookies" },
+    { href: "advertisement-policy.html", label: "Advertisement Policy", id: "ads" },
+    { href: "dmca-policy.html", label: "DMCA Policy", id: "dmca" }
+  ];
+
+  var legalPageIds = {
+    about: true,
+    privacy: true,
+    terms: true,
+    disclaimer: true,
+    editorial: true,
+    cookies: true,
+    ads: true,
+    dmca: true
+  };
+
+  function buildLegalDropdown() {
+    var legalActive = !!legalPageIds[currentPage];
+    var btnClass = "site-nav__drop-btn" + (legalActive ? " is-active" : "");
+    var links = legalItems
+      .map(function (item) {
+        var active = item.id === currentPage ? " is-active" : "";
+        return (
+          '<li role="none">' +
+            '<a role="menuitem" href="' + item.href + '" class="' + active.trim() + '">' + item.label + "</a>" +
+          "</li>"
+        );
+      })
+      .join("");
+
+    return (
+      '<li class="site-nav__dropdown' + (legalActive ? " is-current" : "") + '">' +
+        '<button type="button" class="' + btnClass + '" id="legal-pages-btn" aria-expanded="false" aria-haspopup="true" aria-controls="legal-pages-menu">' +
+          '<span>Legal Pages</span>' +
+          '<svg class="site-nav__chevron" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false">' +
+            '<path fill="currentColor" d="M2.1 4.2L6 8.1l3.9-3.9 1.1 1.1L6 10.3 1 5.3z"/>' +
+          "</svg>" +
+        "</button>" +
+        '<ul class="site-nav__drop-menu" id="legal-pages-menu" role="menu" aria-label="Legal Pages">' +
+          links +
+        "</ul>" +
+      "</li>"
+    );
+  }
+
   function buildNav() {
-    return navItems.map(function (item) {
-      var active = item.id === currentPage ? " is-active" : "";
-      return '<li><a href="' + item.href + '" class="' + active.trim() + '">' + item.label + "</a></li>";
-    }).join("");
+    var main = navItems
+      .map(function (item) {
+        var active = item.id === currentPage ? " is-active" : "";
+        return '<li><a href="' + item.href + '" class="' + active.trim() + '">' + item.label + "</a></li>";
+      })
+      .join("");
+    return main + buildLegalDropdown();
   }
 
   /** Same logo mark + text in header and footer */
@@ -106,13 +160,28 @@
     var toggle = document.querySelector(".site-nav-toggle");
     var nav = document.getElementById("site-nav");
     var backdrop = document.getElementById("site-nav-backdrop");
+    var drop = document.querySelector(".site-nav__dropdown");
+    var dropBtn = document.getElementById("legal-pages-btn");
     if (!toggle || !nav) return;
+
+    function closeDropdown() {
+      if (!drop || !dropBtn) return;
+      drop.classList.remove("is-open");
+      dropBtn.setAttribute("aria-expanded", "false");
+    }
+
+    function openDropdown() {
+      if (!drop || !dropBtn) return;
+      drop.classList.add("is-open");
+      dropBtn.setAttribute("aria-expanded", "true");
+    }
 
     function closeNav() {
       nav.classList.remove("is-open");
       toggle.setAttribute("aria-expanded", "false");
       document.body.classList.remove("nav-open");
       if (backdrop) backdrop.hidden = true;
+      closeDropdown();
     }
 
     function openNav() {
@@ -128,6 +197,22 @@
       else openNav();
     });
 
+    if (dropBtn && drop) {
+      dropBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (drop.classList.contains("is-open")) closeDropdown();
+        else openDropdown();
+      });
+
+      drop.addEventListener("mouseenter", function () {
+        if (window.innerWidth > 768) openDropdown();
+      });
+      drop.addEventListener("mouseleave", function () {
+        if (window.innerWidth > 768) closeDropdown();
+      });
+    }
+
     if (backdrop) {
       backdrop.addEventListener("click", closeNav);
     }
@@ -136,12 +221,21 @@
       if (e.key === "Escape") closeNav();
     });
 
+    document.addEventListener("click", function (e) {
+      if (!drop) return;
+      if (!drop.contains(e.target)) closeDropdown();
+    });
+
     nav.querySelectorAll("a").forEach(function (a) {
       a.addEventListener("click", closeNav);
     });
 
     window.addEventListener("resize", function () {
-      if (window.innerWidth > 768) closeNav();
+      if (window.innerWidth > 768) {
+        closeNav();
+      } else {
+        closeDropdown();
+      }
     });
   }
 

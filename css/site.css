@@ -236,6 +236,129 @@ body.site-body .container {
   width: 100%;
 }
 
+/* Legal Pages dropdown */
+.site-nav__dropdown {
+  position: relative;
+}
+
+.site-nav__drop-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: #4A3728;
+  font: inherit;
+  font-weight: 500;
+  font-size: clamp(14px, 3.5vw, 15px);
+  cursor: pointer;
+  position: relative;
+}
+
+.site-nav__drop-btn::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: #FF6B95;
+  transition: width 0.3s ease;
+}
+
+.site-nav__drop-btn:hover,
+.site-nav__drop-btn.is-active,
+.site-nav__dropdown.is-current .site-nav__drop-btn,
+.site-nav__dropdown.is-open .site-nav__drop-btn {
+  color: #5c0a2a;
+  font-weight: 600;
+}
+
+.site-nav__drop-btn:hover::after,
+.site-nav__drop-btn.is-active::after,
+.site-nav__dropdown.is-current .site-nav__drop-btn::after,
+.site-nav__dropdown.is-open .site-nav__drop-btn::after {
+  width: 100%;
+}
+
+.site-nav__chevron {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.site-nav__dropdown.is-open .site-nav__chevron {
+  transform: rotate(180deg);
+}
+
+.site-nav__drop-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  min-width: 240px;
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  background: #fff;
+  border: 1px solid rgba(176, 16, 74, 0.12);
+  border-radius: 12px;
+  box-shadow: 0 14px 36px rgba(74, 55, 40, 0.14);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+  z-index: 1100;
+}
+
+.site-nav__drop-menu::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-left: 1px solid rgba(176, 16, 74, 0.12);
+  border-top: 1px solid rgba(176, 16, 74, 0.12);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.site-nav__dropdown.is-open .site-nav__drop-menu,
+.site-nav__dropdown:hover .site-nav__drop-menu,
+.site-nav__dropdown:focus-within .site-nav__drop-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.site-nav__drop-menu li {
+  width: 100%;
+}
+
+.site-nav__drop-menu a {
+  display: block;
+  padding: 10px 14px !important;
+  border-radius: 8px;
+  color: #4A3728;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.site-nav__drop-menu a::after {
+  display: none !important;
+}
+
+.site-nav__drop-menu a:hover,
+.site-nav__drop-menu a.is-active {
+  background: #FFF0F5;
+  color: #b0104a;
+  font-weight: 600;
+}
+
 .site-nav__cta {
   background: linear-gradient(135deg, #FF6B95 0%, #FF8FA8 100%) !important;
   color: #fff !important;
@@ -1168,6 +1291,70 @@ body.nav-open {
   .site-nav a::after {
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  .site-nav__dropdown {
+    width: 100%;
+  }
+
+  .site-nav__drop-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 0;
+    font-size: 16px;
+  }
+
+  .site-nav__drop-btn::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .site-nav__drop-menu {
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+    min-width: 0;
+    width: 100%;
+    margin: 4px 0 8px;
+    padding: 6px;
+    border-radius: 10px;
+    box-shadow: none;
+    border: 1px solid rgba(176, 16, 74, 0.12);
+    background: #fff8fa;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    display: none;
+  }
+
+  .site-nav__drop-menu::before {
+    display: none;
+  }
+
+  .site-nav__dropdown:hover .site-nav__drop-menu,
+  .site-nav__dropdown:focus-within .site-nav__drop-menu {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: none;
+  }
+
+  .site-nav__dropdown.is-open .site-nav__drop-menu,
+  .site-nav__dropdown.is-open:hover .site-nav__drop-menu,
+  .site-nav__dropdown.is-open:focus-within .site-nav__drop-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .site-nav__drop-menu a {
+    text-align: center;
+    white-space: normal;
+    padding: 12px 10px !important;
   }
 
   .site-nav__cta {
