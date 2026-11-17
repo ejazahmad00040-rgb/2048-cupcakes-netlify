@@ -217,6 +217,13 @@
 }
 
 /* ── Back to top ── */
+.back-to-top svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+  pointer-events: none;
+}
+
 .back-to-top {
   position: fixed;
   right: max(16px, env(safe-area-inset-right));

@@ -77,8 +77,8 @@ var GameEnhancements = (function () {
       '<div class="modal-overlay" id="modal-settings" hidden>' +
         '<div class="modal-card modal-card--settings" role="dialog" aria-modal="true" aria-labelledby="settings-title">' +
           '<div class="settings-modal__header">' +
-            '<h3 id="settings-title">⚙ Settings</h3>' +
-            '<button type="button" class="modal-close" id="btn-close-settings-x" aria-label="Close settings">✕</button>' +
+            '<h3 id="settings-title">Settings</h3>' +
+            '<button type="button" class="modal-close" id="btn-close-settings-x" aria-label="Close settings">&times;</button>' +
           "</div>" +
           '<div class="settings-modal__body">' +
             '<div class="settings-stats">' +

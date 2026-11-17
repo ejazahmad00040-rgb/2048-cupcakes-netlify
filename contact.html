@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <link href="css/site.min.css?v=28" rel="stylesheet">
+  <link href="css/site.min.css?v=29" rel="stylesheet">
   <link href="css/responsive.min.css?v=26" rel="stylesheet">
   <script src="js/site-config.min.js?v=7"></script>
   <title>Contact — Cupcakes 2048 Online Puzzle</title>
@@ -30,6 +30,27 @@
   <meta name="twitter:image" id="twitter-image" content="https://2048cupcakess.netlify.app/style/img/2048.jpg">
   <script>
     if (window.SiteConfig) SiteConfig.applySeoMeta({ pagePath: "contact.html", image: "style/img/2048.jpg" });
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "name": "Contact 2048 Cupcakes",
+        "url": "https://2048cupcakess.netlify.app/contact.html",
+        "description": "Contact the Cupcakes 2048 team for feedback or bug reports.",
+        "isPartOf": { "@id": "https://2048cupcakess.netlify.app/#website" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://2048cupcakess.netlify.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://2048cupcakess.netlify.app/contact.html" }
+        ]
+      }
+    ]
+  }
   </script>
 </head>
 <body class="site-body" data-page="contact">
@@ -67,6 +88,24 @@
         <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" required placeholder="Feedback, bug report, or question..."></textarea></div>
         <button type="submit" class="btn-primary">Open Email Draft</button>
       </form>
+
+      <aside class="legal-related" aria-label="Related pages">
+        <h2>Explore more</h2>
+        <ul>
+          <li><a href="index.html#game">Play 2048 Cupcakes</a></li>
+          <li><a href="how-to-play.html">How to Play</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="editorial-policy.html">Editorial Policy</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="advertisement-policy.html">Advertisement Policy</a></li>
+          <li><a href="dmca-policy.html">DMCA Policy</a></li>
+        </ul>
+      </aside>
+
       <p class="contact-info" id="contact-fallback">After you share your GitHub repo, we can wire this page to Issues or your real email.</p>
     </div>
   </main>
@@ -78,12 +117,22 @@
         <a href="about.html">About</a> ·
         <a href="contact.html">Contact</a> ·
         <a href="privacy-policy.html">Privacy</a> ·
-        <a href="terms.html">Terms</a>
+        <a href="terms.html">Terms</a> ·
+        <a href="cookie-policy.html">Cookies</a> ·
+        <a href="advertisement-policy.html">Ads</a> ·
+        <a href="disclaimer.html">Disclaimer</a> ·
+        <a href="editorial-policy.html">Editorial</a> ·
+        <a href="dmca-policy.html">DMCA</a> ·
+        <a href="cookie-policy.html">Cookies</a> ·
+        <a href="advertisement-policy.html">Ads</a> ·
+        <a href="disclaimer.html">Disclaimer</a> ·
+        <a href="editorial-policy.html">Editorial</a> ·
+        <a href="dmca-policy.html">DMCA</a>
       </nav>
     </noscript>
   </footer>
 
-  <script src="js/site.min.js?v=14" defer></script>
+  <script src="js/site.min.js?v=15" defer></script>
   <script defer>
     document.addEventListener("DOMContentLoaded", function () {
       var cfg = window.SiteConfig || {};

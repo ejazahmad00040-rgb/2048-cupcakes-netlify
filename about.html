@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <link href="css/site.min.css?v=28" rel="stylesheet">
+  <link href="css/site.min.css?v=29" rel="stylesheet">
   <link href="css/responsive.min.css?v=26" rel="stylesheet">
   <script src="js/site-config.min.js?v=7"></script>
   <title>About Cupcakes 2048 — Free Online Merge Puzzle</title>
@@ -30,6 +30,28 @@
   <meta name="twitter:image" id="twitter-image" content="https://2048cupcakess.netlify.app/style/img/2048.jpg">
   <script>
     if (window.SiteConfig) SiteConfig.applySeoMeta({ pagePath: "about.html", image: "style/img/2048.jpg" });
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "name": "About 2048 Cupcakes",
+        "url": "https://2048cupcakess.netlify.app/about.html",
+        "description": "About Cupcakes 2048, a free online merge puzzle inspired by classic 2048.",
+        "isPartOf": { "@id": "https://2048cupcakess.netlify.app/#website" },
+        "mainEntity": { "@id": "https://2048cupcakess.netlify.app/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://2048cupcakess.netlify.app/" },
+          { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://2048cupcakess.netlify.app/about.html" }
+        ]
+      }
+    ]
+  }
   </script>
 </head>
 <body class="site-body" data-page="about">
@@ -67,9 +89,27 @@
         <li><strong>Works everywhere</strong> — Keyboard on desktop, swipe on phone</li>
       </ul>
       <h2>Credits</h2>
-      <p>Gameplay is inspired by <a href="https://play2048.co/" target="_blank" rel="noopener noreferrer">2048</a> by <a href="https://gabrielecirulli.com" target="_blank" rel="noopener noreferrer">Gabriele Cirulli</a> (MIT License). This site is an independent fan-made cupcake-themed version and is <strong>not affiliated</strong> with any bakery brand.</p>
+      <p>Gameplay is inspired by <a href="https://play2048.co/" target="_blank" rel="noopener noreferrer">2048</a> by <a href="https://gabrielecirulli.com" target="_blank" rel="noopener noreferrer">Gabriele Cirulli</a> (MIT License). This site is an independent fan-made cupcake-themed version and is <strong>not affiliated</strong> with any bakery brand. See our <a href="disclaimer.html">Disclaimer</a> and <a href="dmca-policy.html">DMCA Policy</a> for intellectual-property details.</p>
       <h2>Play free, anywhere</h2>
-      <p>Everything runs in your browser. Progress saves locally on your device. Close the tab and come back anytime.</p>
+      <p>Everything runs in your browser. Progress saves locally on your device — details in our <a href="privacy-policy.html">Privacy Policy</a> and <a href="cookie-policy.html">Cookie Policy</a>. New to the puzzle? Read <a href="how-to-play.html">How to Play</a>, review our <a href="terms.html">Terms &amp; Conditions</a>, or <a href="contact.html">Contact</a> us with feedback. Advertising practices (when ads are enabled) are covered in the <a href="advertisement-policy.html">Advertisement Policy</a> and content standards in the <a href="editorial-policy.html">Editorial Policy</a>.</p>
+
+      <aside class="legal-related" aria-label="Related pages">
+        <h2>Explore more</h2>
+        <ul>
+          <li><a href="index.html#game">Play 2048 Cupcakes</a></li>
+          <li><a href="how-to-play.html">How to Play</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="editorial-policy.html">Editorial Policy</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="advertisement-policy.html">Advertisement Policy</a></li>
+          <li><a href="dmca-policy.html">DMCA Policy</a></li>
+        </ul>
+      </aside>
+
       <p style="text-align:center;margin-top:40px"><a href="index.html#game" class="btn-cta">▶ Start Playing</a></p>
     </div>
   </main>
@@ -81,11 +121,21 @@
         <a href="about.html">About</a> ·
         <a href="contact.html">Contact</a> ·
         <a href="privacy-policy.html">Privacy</a> ·
-        <a href="terms.html">Terms</a>
+        <a href="terms.html">Terms</a> ·
+        <a href="cookie-policy.html">Cookies</a> ·
+        <a href="advertisement-policy.html">Ads</a> ·
+        <a href="disclaimer.html">Disclaimer</a> ·
+        <a href="editorial-policy.html">Editorial</a> ·
+        <a href="dmca-policy.html">DMCA</a> ·
+        <a href="cookie-policy.html">Cookies</a> ·
+        <a href="advertisement-policy.html">Ads</a> ·
+        <a href="disclaimer.html">Disclaimer</a> ·
+        <a href="editorial-policy.html">Editorial</a> ·
+        <a href="dmca-policy.html">DMCA</a>
       </nav>
     </noscript>
   </footer>
 
-  <script src="js/site.min.js?v=14" defer></script>
+  <script src="js/site.min.js?v=15" defer></script>
 </body>
 </html>

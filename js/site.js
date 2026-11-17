@@ -79,8 +79,14 @@
             '<div class="site-footer__col">' +
               '<p class="site-footer__col-title">Legal</p>' +
               "<ul>" +
+                '<li><a href="about.html">About Us</a></li>' +
                 '<li><a href="privacy-policy.html">Privacy Policy</a></li>' +
-                '<li><a href="terms.html">Terms of Use</a></li>' +
+                '<li><a href="terms.html">Terms &amp; Conditions</a></li>' +
+                '<li><a href="disclaimer.html">Disclaimer</a></li>' +
+                '<li><a href="editorial-policy.html">Editorial Policy</a></li>' +
+                '<li><a href="cookie-policy.html">Cookie Policy</a></li>' +
+                '<li><a href="advertisement-policy.html">Advertisement Policy</a></li>' +
+                '<li><a href="dmca-policy.html">DMCA Policy</a></li>' +
               "</ul>" +
             "</div>" +
           "</div>" +

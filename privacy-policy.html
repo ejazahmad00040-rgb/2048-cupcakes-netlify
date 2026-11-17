@@ -15,21 +15,45 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <link href="css/site.min.css?v=28" rel="stylesheet">
+  <link href="css/site.min.css?v=29" rel="stylesheet">
   <link href="css/responsive.min.css?v=26" rel="stylesheet">
   <script src="js/site-config.min.js?v=7"></script>
-  <title>Privacy Policy — Cupcakes 2048</title>
-  <meta name="description" content="Privacy policy for Cupcakes 2048. We focus on local browser play without unnecessary personal data collection.">
+  <title>Privacy Policy — 2048 Cupcakes Free Online Puzzle</title>
+  <meta name="description" content="Privacy Policy for 2048 Cupcakes: local game saves, analytics, optional advertising partners, your choices, and how to contact us about personal data.">
   <link rel="canonical" id="canonical-link" href="https://2048cupcakess.netlify.app/privacy-policy.html">
   <meta property="og:title" content="Privacy Policy — 2048 Cupcakes">
-  <meta property="og:description" content="Privacy Policy for 2048 Cupcakes. Local storage only — no personal data collection.">
+  <meta property="og:description" content="How 2048 Cupcakes handles local storage, analytics, and optional ads — written for players and AdSense transparency.">
   <meta property="og:url" id="og-url" content="https://2048cupcakess.netlify.app/privacy-policy.html">
   <meta property="og:image" id="og-image" content="https://2048cupcakess.netlify.app/style/img/2048.jpg">
   <meta name="twitter:title" content="Privacy Policy — 2048 Cupcakes">
-  <meta name="twitter:description" content="Privacy Policy for 2048 Cupcakes. Local storage only — no personal data collection.">
+  <meta name="twitter:description" content="How 2048 Cupcakes handles local storage, analytics, and optional ads.">
   <meta name="twitter:image" id="twitter-image" content="https://2048cupcakess.netlify.app/style/img/2048.jpg">
   <script>
     if (window.SiteConfig) SiteConfig.applySeoMeta({ pagePath: "privacy-policy.html", image: "style/img/2048.jpg" });
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://2048cupcakess.netlify.app/privacy-policy.html#webpage",
+        "url": "https://2048cupcakess.netlify.app/privacy-policy.html",
+        "name": "Privacy Policy — 2048 Cupcakes",
+        "description": "Privacy Policy for 2048 Cupcakes covering local storage, analytics, and advertising partners.",
+        "isPartOf": { "@id": "https://2048cupcakess.netlify.app/#website" },
+        "dateModified": "2026-11-17",
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://2048cupcakess.netlify.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": "https://2048cupcakess.netlify.app/privacy-policy.html" }
+        ]
+      }
+    ]
+  }
   </script>
 </head>
 <body class="site-body" data-page="privacy">
@@ -51,25 +75,102 @@
 
   <main class="site-main site-main--page" id="main-content">
     <div class="site-container page-content">
-      <div class="page-header"><h1>Privacy Policy</h1><p>Last updated: July 25, 2026</p></div>
-      <h2>Overview</h2>
-      <p>2048 Cupcakes is a free browser game. We do not run accounts and we do not collect personal information on our servers (this site is static).</p>
-      <h2>Local Storage Data</h2>
-      <p>The game stores the following in your browser's localStorage:</p>
+      <nav class="page-breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true"> / </span>
+        <span>Privacy Policy</span>
+      </nav>
+      <div class="page-header">
+        <h1>Privacy Policy</h1>
+        <p>How 2048 Cupcakes handles information when you play this free browser puzzle</p>
+        <p class="legal-updated">Last updated: November 17, 2026</p>
+      </div>
+
+      <h2>1. Who we are</h2>
+      <p><strong>2048 Cupcakes</strong> (“we,” “us”) operates the free online merge puzzle at this website. Learn more on our <a href="about.html">About Us</a> page. You can <a href="index.html#game">play the game</a>, read <a href="how-to-play.html">How to Play</a>, or reach us via <a href="contact.html">Contact</a>.</p>
+      <p>This Privacy Policy explains what information is processed when you visit, what stays only on your device, and how third-party tools (analytics and optional advertising) may work. Related documents: <a href="cookie-policy.html">Cookie Policy</a>, <a href="advertisement-policy.html">Advertisement Policy</a>, <a href="terms.html">Terms &amp; Conditions</a>, and <a href="disclaimer.html">Disclaimer</a>.</p>
+
+      <h2>2. A static game — no player accounts</h2>
+      <p>We do not require registration. There is no username/password system and we do not operate a player profile database on our own servers for scores. The site is delivered as static files (hosted on Netlify). Game progress is designed to live in your browser unless you clear it.</p>
+
+      <h2>3. Information stored on your device</h2>
+      <p>To make gameplay work, we store data in your browser’s localStorage (and similar storage), which may include:</p>
       <ul>
-        <li>Game state (board, scores, win/loss status)</li>
-        <li>Best cupcake tier and best Kcal scores</li>
-        <li>Daily challenge / top scores on this device</li>
-        <li>Achievement progress and settings preferences</li>
-        <li>Sound and display settings</li>
+        <li>Game board state, current and best scores, win/loss status</li>
+        <li>Best cupcake tier and best Kcal on that browser</li>
+        <li>Daily challenge / streak-style progress on this device</li>
+        <li>Achievement progress and UI preferences</li>
+        <li>Sound and music toggle settings</li>
       </ul>
-      <p>This data stays on your device. Clear it anytime via Settings → Clear saved data, or through your browser settings.</p>
-      <h2>Third-Party Services</h2>
-      <p>If Google Analytics (GA4) is enabled, Google may collect usage data such as page views, device/browser type, and approximate location. We configure Analytics with IP anonymization where available. Google’s policies apply to that data: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.</p>
-      <p>We do not run ads on this site. Optional share features may open your device's share sheet or a social network share page — those platforms have their own policies.</p>
-      <p>Google Search Console may be used to monitor indexing; verification does not collect personal gameplay data.</p>
-      <h2>Contact</h2>
-      <p>Questions? Use the <a href="contact.html">Contact</a> page.</p>
+      <p>This information stays on your device. Clear it anytime via in-game Settings → Clear saved data (when available) or by clearing site data in your browser settings. Losing this data does not delete information held by third-party analytics or ad partners on their systems.</p>
+
+      <h2>4. Information collected through analytics</h2>
+      <p>When Google Analytics 4 (GA4) is enabled, Google may collect usage data such as page views, approximate geographic region, device and browser type, referral source, and similar diagnostics. We configure IP anonymization where available. Google processes this data under the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.</p>
+      <p>We use analytics to understand whether the game and guides load correctly and which help pages (for example How to Play) are useful — not to sell a list of individual players.</p>
+
+      <h2>5. Advertising partners</h2>
+      <p>We may display ads through networks such as Google AdSense when enabled and approved. Those partners can use cookies and advertising identifiers as described in our <a href="cookie-policy.html">Cookie Policy</a> and <a href="advertisement-policy.html">Advertisement Policy</a>. We do not intentionally collect your government ID, payment card number, or precise GPS coordinates for advertising.</p>
+
+      <h2>6. Contact form and email</h2>
+      <p>If you use the <a href="contact.html">Contact</a> form, your name, email address, and message are handled by your own email client (mailto draft) or by whatever channel you choose (for example GitHub Issues). We use that information only to respond to your request.</p>
+
+      <h2>7. How we use information</h2>
+      <p>Information is used to:</p>
+      <ul>
+        <li>Operate and improve the puzzle and site performance</li>
+        <li>Remember settings and progress on your device</li>
+        <li>Measure traffic and fix broken pages</li>
+        <li>Support free access through compliant advertising when enabled</li>
+        <li>Respond to messages you send us</li>
+        <li>Protect the site against abuse and comply with law</li>
+      </ul>
+
+      <h2>8. Legal bases (where applicable)</h2>
+      <p>Depending on your region, we rely on one or more of: providing the service you request (playing a browser game), legitimate interests in securing and improving a free site, consent for non-essential cookies/ads where required, and legal obligations when we must respond to valid requests.</p>
+
+      <h2>9. Sharing</h2>
+      <p>We do not sell your personal information. We share data with processors/partners only as needed to host the site, measure usage, serve ads, or comply with law — for example Netlify (hosting), Google (Analytics / AdSense when used), and font or CDN providers. Optional share buttons open third-party share sheets; those platforms have their own policies.</p>
+
+      <h2>10. Retention</h2>
+      <p>Local game data remains until you clear it. Analytics and advertising retention follow each partner’s policies. Contact emails are kept only as long as needed to resolve your request.</p>
+
+      <h2>11. Security</h2>
+      <p>We use HTTPS hosting and limit what we store server-side. No method of internet transmission is 100% secure. Protect your own device and avoid sharing screenshots that contain private information you do not want public.</p>
+
+      <h2>12. Children’s privacy</h2>
+      <p>The game is a general-audience puzzle. We do not knowingly collect personal information from children for marketing profiles. Parents and guardians should supervise younger users. If you believe a child provided personal information to us directly, contact us and we will delete it where applicable.</p>
+
+      <h2>13. Your choices and rights</h2>
+      <p>Depending on your location, you may have rights to access, correct, delete, or restrict certain personal data, or to object to certain processing. Because most gameplay data never leaves your browser, many requests are resolved by clearing local site data. For analytics/ads, use browser controls and partner opt-outs described in the Cookie Policy. To contact us about privacy, use the Contact page.</p>
+
+      <h2>14. International visitors</h2>
+      <p>Our hosting and partners may process data in the United States or other countries. If you visit from another region, you understand that information may be transferred to countries with different data-protection laws, subject to applicable safeguards those providers offer.</p>
+
+      <h2>15. Search Console and SEO tools</h2>
+      <p>We may use Google Search Console or similar tools to monitor indexing. Verification tags do not collect your gameplay saves.</p>
+
+      <h2>16. Changes to this policy</h2>
+      <p>We may update this Privacy Policy when features or partners change. The “Last updated” date will change when revisions are material. Continued use of the site after an update means you should review the new version.</p>
+
+      <h2>17. Contact</h2>
+      <p>Privacy questions: <a href="contact.html">Contact</a>. For copyright of hosted assets, see our <a href="dmca-policy.html">DMCA Policy</a>. Content standards: <a href="editorial-policy.html">Editorial Policy</a>.</p>
+
+      <aside class="legal-related" aria-label="Related policies">
+        <h2>Related policies</h2>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="editorial-policy.html">Editorial Policy</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="advertisement-policy.html">Advertisement Policy</a></li>
+          <li><a href="dmca-policy.html">DMCA Policy</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="how-to-play.html">How to Play</a></li>
+          <li><a href="index.html#game">Play 2048 Cupcakes</a></li>
+        </ul>
+      </aside>
+      <p class="legal-cta"><a href="index.html#game" class="btn-cta">Play 2048 Cupcakes</a> · <a href="how-to-play.html">How to Play</a> · <a href="contact.html">Contact</a></p>
     </div>
   </main>
   <footer id="site-footer">
@@ -80,11 +181,16 @@
         <a href="about.html">About</a> ·
         <a href="contact.html">Contact</a> ·
         <a href="privacy-policy.html">Privacy</a> ·
-        <a href="terms.html">Terms</a>
+        <a href="terms.html">Terms</a> ·
+        <a href="cookie-policy.html">Cookies</a> ·
+        <a href="advertisement-policy.html">Ads</a> ·
+        <a href="disclaimer.html">Disclaimer</a> ·
+        <a href="editorial-policy.html">Editorial</a> ·
+        <a href="dmca-policy.html">DMCA</a>
       </nav>
     </noscript>
   </footer>
 
-  <script src="js/site.min.js?v=14" defer></script>
+  <script src="js/site.min.js?v=15" defer></script>
 </body>
 </html>
